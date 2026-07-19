@@ -42,7 +42,7 @@ All tools except `gmail_list_accounts`/`gmail_start_auth`/`gmail_auth_status` ac
 
 Pick one:
 
-**Download a prebuilt release** (macOS Intel/Apple Silicon, Linux x86_64, Windows x86_64) from the [Releases page](https://github.com/appler1009/gmail-mcp-rs/releases). Extract it and put `gmail-mcp` somewhere on your `PATH`, e.g. `~/.local/bin/gmail-mcp`.
+**Download a prebuilt release** (macOS Apple Silicon, Linux x86_64, Windows x86_64) from the [Releases page](https://github.com/appler1009/gmail-mcp-rs/releases). Extract it and put `gmail-mcp` somewhere on your `PATH`, e.g. `~/.local/bin/gmail-mcp`. Intel Mac users: build from source (below) or install via crates.io — Intel macOS binaries are on hold pending GitHub Actions runner availability, see [#1](https://github.com/appler1009/gmail-mcp-rs/issues/1).
 
 **Install via crates.io:**
 
@@ -124,7 +124,7 @@ Unless you complete Google's OAuth verification process for your Cloud project (
 
 ## Releasing (maintainers)
 
-Pushing a tag matching `v*.*.*` triggers [`.github/workflows/release.yml`](.github/workflows/release.yml), which builds binaries for macOS (Intel + Apple Silicon), Linux, and Windows, attaches them to a new GitHub Release, and publishes the crate to crates.io:
+Pushing a tag matching `v*.*.*` triggers [`.github/workflows/release.yml`](.github/workflows/release.yml), which builds binaries for macOS (Apple Silicon), Linux, and Windows, attaches them to a new GitHub Release, and publishes the crate to crates.io:
 
 ```bash
 git tag v0.1.0
