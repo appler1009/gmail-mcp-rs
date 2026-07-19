@@ -89,7 +89,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "gmail-mcp"
+name = "gmail-mcp-rs"
 version = "0.1.0"
 dependencies = [
  "native-tls",

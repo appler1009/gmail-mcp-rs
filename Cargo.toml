@@ -1,7 +1,13 @@
 [package]
-name = "gmail-mcp"
+name = "gmail-mcp-rs"
 version = "0.1.0"
 edition = "2021"
+description = "A dependency-minimal, read-only Gmail MCP server with multi-account support"
+license = "MIT"
+repository = "https://github.com/appler1009/gmail-mcp-rs"
+authors = ["Appler"]
+keywords = ["gmail", "mcp", "model-context-protocol"]
+categories = ["command-line-utilities"]
 
 [[bin]]
 name = "gmail-mcp"
