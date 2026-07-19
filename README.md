@@ -38,15 +38,24 @@ All tools except `gmail_list_accounts`/`gmail_start_auth`/`gmail_auth_status` ac
 4. Add `http://localhost:8765/callback` as an authorized redirect URI (or pick your own port and set `GOOGLE_REDIRECT_URL` accordingly later).
 5. Under **OAuth consent screen**, add every Gmail address you plan to link as a **test user** — while the app is unverified (the default, fine for personal use), only test users can complete the consent flow, and unverified apps in Testing mode issue refresh tokens that expire after 7 days.
 
-### 2. Build
+### 2. Get the binary
+
+Pick one:
+
+**Download a prebuilt release** (macOS Intel/Apple Silicon, Linux x86_64, Windows x86_64) from the [Releases page](https://github.com/appler1009/gmail-mcp-rs/releases). Extract it and put `gmail-mcp` somewhere on your `PATH`, e.g. `~/.local/bin/gmail-mcp`.
+
+**Install via crates.io:**
+
+```bash
+cargo install gmail-mcp-rs
+```
+
+This installs the `gmail-mcp` binary to `~/.cargo/bin` (make sure that's on your `PATH`).
+
+**Build from source:**
 
 ```bash
 cargo build --release
-```
-
-The binary lands at `target/release/gmail-mcp`. Copy it somewhere on your `PATH`, e.g.:
-
-```bash
 cp target/release/gmail-mcp ~/.local/bin/gmail-mcp
 ```
 
@@ -112,3 +121,14 @@ Unless you complete Google's OAuth verification process for your Cloud project (
 
 - Only accounts you've added as test users can authorize it.
 - Refresh tokens for test users expire after **7 days** — you'll need to rerun `--auth` (or `gmail_start_auth`) periodically to keep an account linked.
+
+## Releasing (maintainers)
+
+Pushing a tag matching `v*.*.*` triggers [`.github/workflows/release.yml`](.github/workflows/release.yml), which builds binaries for macOS (Intel + Apple Silicon), Linux, and Windows, attaches them to a new GitHub Release, and publishes the crate to crates.io:
+
+```bash
+git tag v0.1.0
+git push --tags
+```
+
+Publishing to crates.io requires a `CARGO_REGISTRY_TOKEN` repo secret — generate one at [crates.io/settings/tokens](https://crates.io/settings/tokens) and add it under repo **Settings → Secrets and variables → Actions**. Bump `version` in `Cargo.toml` before tagging; crates.io rejects re-publishing an existing version.
