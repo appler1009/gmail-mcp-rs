@@ -6,7 +6,7 @@ description = "A dependency-minimal, read-only Gmail MCP server with multi-accou
 license = "MIT"
 repository = "https://github.com/appler1009/gmail-mcp-rs"
 authors = ["Appler"]
-keywords = ["gmail", "mcp", "model-context-protocol"]
+keywords = ["gmail", "mcp", "mcp-server"]
 categories = ["command-line-utilities"]
 
 [[bin]]
