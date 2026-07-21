@@ -77,7 +77,7 @@ fn tool_defs() -> Value {
         },
         {
             "name": "gmail_start_auth",
-            "description": "Start linking a new Gmail account: opens the Google OAuth consent screen in the user's browser and returns the URL (in case it needs to be opened manually). Runs in the background - call gmail_auth_status afterward to find out when it's done and which email address was linked.",
+            "description": "Start linking a new Gmail account: opens the Google OAuth consent screen in the user's browser and returns the URL (in case it needs to be opened manually). Runs in the background - call gmail_auth_status afterward to find out when it's done and which email address was linked. Also the fix when another tool errors with 'refresh token is invalid or revoked' - call this to re-link that account.",
             "inputSchema": { "type": "object", "properties": {} }
         },
         {

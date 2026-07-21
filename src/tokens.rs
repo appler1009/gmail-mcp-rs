@@ -106,11 +106,14 @@ pub fn ensure_fresh(loaded: &mut Loaded) -> Result<(), String> {
     )?;
 
     if resp.status != 200 {
-        return Err(format!(
-            "token refresh failed ({}): {}",
-            resp.status,
-            resp.text()
-        ));
+        let text = resp.text();
+        if text.contains("invalid_grant") {
+            return Err(
+                "refresh token is invalid or revoked - call gmail_start_auth to re-link this account"
+                    .to_string(),
+            );
+        }
+        return Err(format!("token refresh failed ({}): {}", resp.status, text));
     }
 
     let json = resp.json()?;

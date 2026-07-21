@@ -1,6 +1,6 @@
 [package]
 name = "gmail-mcp-rs"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A dependency-minimal, read-only Gmail MCP server with multi-account support"
 license = "MIT"
